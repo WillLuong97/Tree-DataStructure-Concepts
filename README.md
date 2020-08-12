@@ -100,3 +100,12 @@ Example:
 3. The right subtree is balanced 
 
 
+
+
+### Binary Search Tree: 
+
+## Definition: 
+-   Binary tree in which for each node, the value of all the nodes in the left subtree are lesser than or equal to the root node, while all the node in the right subtree are greater than the root node. 
+-   The main time complexity to work on a binary search tree is O(logn)
+
+![Binary Search Tree](/Binary_Search_Tree.png)
