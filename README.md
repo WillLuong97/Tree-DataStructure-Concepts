@@ -78,6 +78,8 @@ Example:
 
 ![Balanced Tree](/balanced_tree.png)
 
++ Balanced Tree
+
 ![Not Balanced Tree](/unbalanced-binary-tree.png)
 
 
