@@ -76,7 +76,7 @@ n = log2(n+1) - 1
 
 Example: 
 
-![Balanced Tree](/balanced_tree.jpg)
+![Balanced Tree](/balanced_tree.png)
 
 
 - Conditions of a balanced binary tree: 
