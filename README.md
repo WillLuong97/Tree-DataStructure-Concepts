@@ -78,6 +78,12 @@ Example:
 
 ![Balanced Tree](/balanced_tree.png)
 
+![Not Balanced Tree](/unbalanced-binary-tree.png)
+
+
+
+
+
 
 - Conditions of a balanced binary tree: 
 
