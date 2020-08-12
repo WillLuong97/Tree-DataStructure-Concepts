@@ -101,7 +101,6 @@ Example:
 
 
 
-
 ### Binary Search Tree: 
 
 ## Definition: 
@@ -109,3 +108,20 @@ Example:
 -   The main time complexity to work on a binary search tree is O(logn)
 
 ![Binary Search Tree](/Binary_Search_Tree.png)
+
+
+
+## Tree traversal: 
+
+### Breadth first search: 
+
+- The search involves searching throuhg a tree one level at a time. We traverse through one entire level of children nodes first, before moving onto traversing through the grandchildren nodes
+
+### Depth first search: 
+
++ Inorder traversal: 
+
++ Preorder traversal:
+
++ Postorder traversal: 
+
