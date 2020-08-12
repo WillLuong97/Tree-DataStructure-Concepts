@@ -82,6 +82,10 @@ Example:
 
 ![Not Balanced Tree](/unbalanced-binary-tree.png)
 
+
+
+
+
 + Unbalanced Tree
 
 
