@@ -71,8 +71,18 @@ n = log2(n+1) - 1
 
 ## Definition: 
 
-- The difference between height of left and right node is not more than k(mostly 1)
+- A balanced binary tree, also referred to as a height-balanced binary tree, is defined as a binary tree in which the height of the left and right subtree of any nodes differ by not more than 1
+
 
 Example: 
 
 ![Balanced Tree](/balanced_tree.jpg)
+
+
+- Conditions of a balanced binary tree: 
+
+1. The difference between the left and right subtree for any nodes is not more than 1
+2. The left subtree is balanced
+3. The right subtree is balanced 
+
+
