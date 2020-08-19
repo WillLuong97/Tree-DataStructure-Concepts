@@ -105,6 +105,7 @@ Example:
 
 ## Definition: 
 -   Binary tree in which for each node, the value of all the nodes in the left subtree are lesser than or equal to the root node, while all the node in the right subtree are greater than the root node. 
+
 -   The main time complexity to work on a binary search tree is O(logn)
 
 ![Binary Search Tree](/Binary_Search_Tree.png)
@@ -115,13 +116,55 @@ Example:
 
 ### Breadth first search: 
 
-- The search involves searching throuhg a tree one level at a time. We traverse through one entire level of children nodes first, before moving onto traversing through the grandchildren nodes
+- The search involves searching through a tree one level at a time. We traverse through one entire level of children nodes first, before moving onto traversing through the grandchildren nodes.
+
+- Algorithm: there are basically two function in this method, one is to print all nodes at a given level, and one is to print the level order traversal of the tree. 
+
+```
+/*Function to print level order traversal of tree*/
+printLevelorder(tree)
+for d = 1 to height(tree)
+   printGivenLevel(tree, d);
+
+/*Function to print all nodes at a given level*/
+printGivenLevel(tree, level)
+if tree is NULL then return;
+if level is 1, then
+    print(tree->data);
+else if level greater than 1, then
+    printGivenLevel(tree->left, level-1);
+    printGivenLevel(tree->right, level-1);
+
+
+```
 
 ### Depth first search: 
 
-+ Inorder traversal: 
++ Inorder traversal (Left-Root-Right):
 
-+ Preorder traversal:
++ Preorder traversal (Root - Left - Right):
 
-+ Postorder traversal: 
++ Postorder traversal (Left - Right - Root):
 
+
+
+### Time Complexity: 
+
+- All four tree traversal algorithm requires O(n) time as they vist every node exactly onces. 
+
+
+### Space Complexity: 
+
+1.  Extra space required for the Level Order traversal is O(w), where W is the maximum width of the Binary Tree. In level order traversal, queue one by one ndoes of different level.
+
+2.  Extra space required for Depth First Search is O(h) where h is the maximum height of the Binary Tree. In Depth First Search, stack (or function call stacks) stores ancestors of a node.  
+
+
+### How to pick one? 
+
+1. Extra space can be one factors
+
+2. Depth first search often requires recursive function call and recursive code requires function call to overheads
+
+3. Overall, BFS starts visiting nodes from root while DFS starts visiting nodes from leaves. So if our problem is to search through something that is more likely closer to the root, we would prefer BFS.
+And if the target node is closer to the leaf, we would use DFS
