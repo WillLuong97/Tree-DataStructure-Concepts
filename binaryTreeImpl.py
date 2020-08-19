@@ -2,12 +2,12 @@
 
 COUNT = [10]
 
-#A python class that represents an individual node:
-class Node:
-    def __init__(self, value):
-        self.left = None
-        self.right = None
-        self.val = value
+# #A python class that represents an individual node:
+# class Node:
+#     def __init__(self, value):
+#         self.left = None
+#         self.right = None
+#         self.val = value
 
 
 #function to print a tree to the console
@@ -61,11 +61,75 @@ def createATree():
 
     print2D(root)
 
+
+
+
+#Recursive function to implement level order traversal of a binary search
+
+#A node structure: 
+class Node:
+    #utility function to create a new node
+    def __init__(self, key):
+        self.data = key
+        self.left = None
+        self.right = None
+
+"""
+Helper method to the height of a tree--the number of nodes along
+the longest path from the root node to the farthest leaf node
+"""
+def treeHeight(node):
+    #if the tree is empty, then return 0
+    if not node:
+        return 0
+
+    else:
+        #base case: 
+        left_height = treeHeight(node.left)
+        right_height = treeHeight(node.right)
+
+        #height of the sub tree, left and right
+        if left_height > right_height:
+            return left_height + 1
+
+        else:
+            return right_height + 1
+
+
+#Function to print out all the level order traversal of a tree: 
+def printLevelOrder(root):
+    h = treeHeight(root)
+    for i in range(1, h+1):
+        printGivenLevel(root, i)
+
+#Level order traversal algorithm: 
+def printGivenLevel(root, level):
+    if not root: 
+        return 0
+
+    if level == 1:
+        print(root.data,end=" ")
+
+    elif level > 1: 
+        printGivenLevel(root.left, level - 1)
+        printGivenLevel(root.right, level - 1)
+
 #main function to run the program
 def main():
-    print("Welcome to the Tree implementation structure program")
-    print("")
-    print("     First! We will make a tree ")
-    print(createATree())
+    # print("Welcome to the Tree implementation structure program")
+    # print("")
+    # print("     First! We will make a tree ")
+    # # print(createATree())
+
+    #Level order traversal test and driver code
+    print("TESTING LEVEL ORDER TRAVERSAL...")
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.right.right = Node(5)
+    print("Level order traversal of binary tree is: ")
+    printLevelOrder(root)
+    
     
 main()
