@@ -114,6 +114,37 @@ def printGivenLevel(root, level):
         printGivenLevel(root.left, level - 1)
         printGivenLevel(root.right, level - 1)
 
+
+
+#A function to do inorder tree traversal: 
+def printInorder(root):
+    #if the tree contains element in it:
+    if root:
+
+        printInorder(root.left)
+        print(root.data, end=" ")
+        printInorder(root.right)
+
+
+#A function to do preorder traversal: 
+def printPreOrder(root):
+    if root:
+        print(root.data, end =" ")
+        printPreOrder(root.left)
+        printPreOrder(root.right)
+
+
+#A function to do Postorder tree traversal: 
+def printPostOrder(root):
+    if root: 
+        printPostOrder(root.left)
+        printPostOrder(root.right)
+        print(root.data, end=" ")
+
+
+ 
+
+
 #main function to run the program
 def main():
     # print("Welcome to the Tree implementation structure program")
@@ -127,9 +158,21 @@ def main():
     root.left = Node(2)
     root.right = Node(3)
     root.left.left = Node(4)
-    root.right.right = Node(5)
+    root.left.right = Node(5)
     print("Level order traversal of binary tree is: ")
     printLevelOrder(root)
+    print()
+    print("TESTING DEPTH FIRST SEARCH....")
+    print("Preorder traversal of binary tree is: ")
+    printPreOrder(root)
+    print()
+
+    print("Inorder traversal of a binary tree is: ")
+    printInorder(root)
+    print()
+
+    print("Postorder traversal of a binary tree is: ")
+    printPostOrder(root)
     
     
 main()
