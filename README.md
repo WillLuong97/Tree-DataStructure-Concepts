@@ -142,10 +142,37 @@ else if level greater than 1, then
 
 + Inorder traversal (Left-Root-Right):
 
+```
+1. Traverse the left subtree, i.e. call Inorder(left-subtree)
+2. Visit the root 
+3. Traverse the right subtree, i.e. call Inorder(right-subtree)
+```
+
+- Uses of Inorder: In case of binary search tree (BST), Inorder traversal gives nodes in non-decreasing order. To get nodes of BST in a non-decreasing matter, a variation of inorder traversal where inorder traversal is reversed can be used. 
+
 + Preorder traversal (Root - Left - Right):
+
+```
+Algorithm Preorder(tree)
+1. Visit the root.
+2. Traverse the left subtree, i.e., call Preorder(left-subtree)
+3. Traverse the right subtree, i.e., call Preorder(right-subtree) 
+```
+- Uses of Preorder: Preorder traversal is used to create a COPY of a tree. Preoder traversal is also used to get PREFIX expression on of an expression tree. 
+
 
 + Postorder traversal (Left - Right - Root):
 
+```
+Algorithm Postorder(tree)
+1. Traverse the left subtree, i.e., call Postorder(left-subtree)
+2. Traverse the right subtree, i.e., call Postorder(right-subtree)
+3. Visit the root.
+
+```
+
+- Uses of Postorders: 
+- Is used to DELETE a tree. It is also useful to get the POSTFIX expression of an expression tree.  
 
 
 ### Time Complexity: 
