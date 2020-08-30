@@ -75,7 +75,7 @@ class Node:
         self.right = None
 
 """
-Helper method to the height of a tree--the number of nodes along
+Helper method to find the height of a tree--the number of nodes along
 the longest path from the root node to the farthest leaf node
 """
 def treeHeight(node):
