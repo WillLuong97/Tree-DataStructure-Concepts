@@ -147,10 +147,10 @@ def printPostOrder(root):
 
 #main function to run the program
 def main():
-    # print("Welcome to the Tree implementation structure program")
-    # print("")
-    # print("     First! We will make a tree ")
-    # # print(createATree())
+    print("Welcome to the Tree implementation structure program")
+    print("")
+    print("     First! We will make a tree ")
+    # print(createATree())
 
     #Level order traversal test and driver code
     print("TESTING LEVEL ORDER TRAVERSAL...")
