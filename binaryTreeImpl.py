@@ -142,7 +142,36 @@ def printPostOrder(root):
         print(root.data, end=" ")
 
 
- 
+#Function to check if the tree is bst or not
+def validateBST(root):
+  return checkBST(root, None, None)
+
+def checkBST(node, minValue, maxValue):
+  #base case: 
+  if not node:
+    return True
+  # Test if we're allowed to go left or right based on condition that 
+  # left <= current < right
+  # 2 conditions where the BST is invalid.
+  # minValue == null, minValue != null, [neg infinity, 20]
+  if minValue and minValue > node.data:
+    return False 
+
+  if maxValue and maxValue <= node.data: 
+    return False
+  
+  #tree traversal: 
+  #go left: 
+  # recursive call to go left (and right)
+  isLeftValid = checkBST(node.left, minValue, node.data)
+  
+  isRightValid = checkBST(node.right, node.data, maxValue)
+
+  if not isLeftValid or not isRightValid:
+    return False
+
+  return True  
+
 
 
 #main function to run the program
@@ -155,9 +184,9 @@ def main():
     #Level order traversal test and driver code
     print("TESTING LEVEL ORDER TRAVERSAL...")
     root = Node(1)
-    root.left = Node(2)
-    root.right = Node(3)
-    root.left.left = Node(4)
+    root.left = Node(4)
+    root.right = Node(8)
+    root.left.left = Node(2)
     root.left.right = Node(5)
     print("Level order traversal of binary tree is: ")
     printLevelOrder(root)
@@ -174,5 +203,7 @@ def main():
     print("Postorder traversal of a binary tree is: ")
     printPostOrder(root)
     
+    print("Checking if a tree if bst or not...")
+    print(validateBST(root))
     
 main()
