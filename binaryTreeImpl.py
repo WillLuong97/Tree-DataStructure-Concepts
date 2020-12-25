@@ -174,6 +174,56 @@ def checkBST(node, minValue, maxValue):
 
 
 
+#Leetcode 617. Merge Two Binary Trees
+
+'''
+Given two binary trees and imagine that when you put one of them to cover the other, some nodes of the two trees are overlapped while the others are not.
+
+You need to merge them into a new binary tree. The merge rule is that if two nodes overlap, then sum node values up as the new value of the merged node. Otherwise, the NOT null node will be used as the node of new tree.
+
+Example 1:
+
+Input: 
+	Tree 1                     Tree 2                  
+          1                         2                             
+         / \                       / \                            
+        3   2                     1   3                        
+       /                           \   \                      
+      5                             4   7                  
+Output: 
+Merged tree:
+	     3
+	    / \
+	   4   5
+	  / \   \ 
+	 5   4   7
+ 
+
+Note: The merging process must start from the root nodes of both trees.
+'''
+#Traverse the two tree and update a result tree with the conditions below: 
+# if t1.currentNode != NULL and t2.currentNode != NUll: t1 = t1 + t2
+# if t1.currentNode == NULL and t2.currentNode != NULL:  t1 = t2
+# it both NULL: return NULL 
+def mergeTrees(t1, t2):
+
+    #Base case: 
+    #check if the tree node are null or not
+    if not t1 and  not t2: 
+        return 
+
+    if not t1: 
+        return t2
+    if not t2: 
+        return t1
+
+    t1.val += t2.val
+    #recursion: 
+    t1.left = mergeTrees(t1.left, t2.left)
+    t1.right = mergeTrees(t1.right, t2.right)
+
+    return t1
+
 #main function to run the program
 def main():
     print("Welcome to the Tree implementation structure program")
@@ -205,5 +255,22 @@ def main():
     
     print("Checking if a tree if bst or not...")
     print(validateBST(root))
+    #First tree
+    t1 = Node(1)
+    t1.left = Node(3)
+    t1.right = Node(2)
+    t1.left.left = Node(5)
     
+    #Second tree: 
+    t2 = Node(2)
+    t2.left = Node(1)
+    t2.right = Node(3)
+    t2.left.right = Node(4)
+    t2.right.right = Node(7)
+
+    print("TESTING Merge Two Binary Trees...")
+    
+    print(mergeTrees(t1, t2))
+    
+
 main()
