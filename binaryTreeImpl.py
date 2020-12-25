@@ -224,6 +224,48 @@ def mergeTrees(t1, t2):
 
     return t1
 
+#Leetcode 897. Increasing Order Search Tree
+
+'''
+Given the root of a binary search tree, rearrange the tree in in-order so that the leftmost node in the tree is now the root of the tree, and every node has no left child and only one right child.
+
+Example 1:
+
+
+Input: root = [5,3,6,2,4,null,8,1,null,null,null,7,9]
+Output: [1,null,2,null,3,null,4,null,5,null,6,null,7,null,8,null,9]
+Example 2:
+
+
+Input: root = [5,1,7]
+Output: [1,null,5,null,7]
+ 
+
+Constraints:
+
+The number of nodes in the given tree will be in the range [1, 100].
+0 <= Node.val <= 1000
+'''
+def increasingBST(root):
+    #helper method to traverse the tree with inorder
+    def inorder(node):
+        #we use yield, instead of return because the function needs to keep going.
+        if node: 
+            yield from inorder(node.left)
+            yield node.val
+            yield from inorder(node.right)
+
+    #dummy node
+    answer = current = Node(None)
+
+    #loop through the inorder traversal list
+    for node in inorder(root):
+        current.right = Node(node)
+        current = current.right
+
+    return answer.right
+#Time complexity: O(N) traverse through the tree with inorder fashion, so this would cost O(n) since we must go through each time. 
+#Space complexity: O(1) we need to store each node only one time
 #main function to run the program
 def main():
     print("Welcome to the Tree implementation structure program")
@@ -233,7 +275,7 @@ def main():
 
     #Level order traversal test and driver code
     print("TESTING LEVEL ORDER TRAVERSAL...")
-    root = Node(1)
+    root = Node(5)
     root.left = Node(4)
     root.right = Node(8)
     root.left.left = Node(2)
@@ -271,6 +313,18 @@ def main():
     print("TESTING Merge Two Binary Trees...")
     
     print(mergeTrees(t1, t2))
+
+    print("TESTING 897. Increasing Order Search Tree...")
+    r = Node(5)
+    r.left = Node(3)
+    r.left.left = Node(2)
+    r.left.left.left = Node(1)
+    r.left.right = Node(4)
+    r.right = Node(6)
+    r.right.right = Node(8)
+    r.right.right.left = Node(7)
+    r.right.right.right = Node(9)
+    print(increasingBST(r))
     
 
 main()
