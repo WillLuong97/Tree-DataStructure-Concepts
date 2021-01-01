@@ -195,3 +195,68 @@ Algorithm Postorder(tree)
 
 3. Overall, BFS starts visiting nodes from root while DFS starts visiting nodes from leaves. So if our problem is to search through something that is more likely closer to the root, we would prefer BFS.
 And if the target node is closer to the leaf, we would use DFS
+
+
+## N-ary Tree
+
+### Definition
+
+- A binary tree is an N-ary tree if a tree is a rooted tree and each node has no more than N children. 
+
+
+![N-ary tree example](/nary_tree_example.png)
+
+
+- Trie is one of the most frequently used N-ary tree 
+- A binary tree is a form of an N-ary tree. 
+
+
+### Tree Traversal
+- A binary tree can be traversed in preorder, inorder, postorder or level-order. Among these traversal algorithm, preorder, postorder, and level-order traversal are more suitable to be extended to a N-ary tree. 
+
+
+### Classical Recursion Solution
+
+1. "Top-down" Solution
+
+```
+"Top-down" means that in each recursion level, we will visit the node first to come up with some values, and parse these values to its children when calling the function recursively.
+
+```
+
+Algorithm
+
+```
+1. return specific value for null node
+2. update the answer if needed                // answer <-- params
+3. for each child node root.children[k]:
+4.    ans[k] = top_down(root.children[k], new_params[k])  // new_params <-- root.val, params
+5. return the answer if needed                // answer <-- all ans[k]
+```
+
+
+2. "Bottom-up" solution
+
+```
+"Bottom-up" means that in each recursion level, we will firstly call the functions recursively for all the children nodes and then come up with the answer according to the return values and the value of the root node itself.
+```
+
+A typical "bottom-up" recursion function ```bottom_up(root)``` work like this: 
+
+```
+1. return specific value for null node
+2. for each child node root.children[k]:
+3.    ans[k] = bottom_up(root.children[k])  // call function recursively for all children
+4. return answer                // answer <- root.val, all ans[k]
+```
+
+
+
+
+
+
+
+
+
+
+
