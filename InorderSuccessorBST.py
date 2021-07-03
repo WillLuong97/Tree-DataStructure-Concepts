@@ -8,7 +8,6 @@ In Binary Search Tree, Inorder Successor of an input node can also be defined as
 
 '''
 
-
 #Tree Node class 
 class TreeNode:
 	def __init__(self, val):
@@ -17,7 +16,7 @@ class TreeNode:
 		self.right = None
 
 class Solutions:
-		#Helper method to find the node of the target int
+	#Helper method to find the node of the target int
 	def findTarget(self, root, target):
 		if not root:
 			return None
@@ -26,10 +25,10 @@ class Solutions:
 			return root 
 		#since this is a bst, we can apply binary search to find the target for a more efficient apparoach
 		elif root.val < target:
-			self.findTarget(root.right, target)
+			return self.findTarget(root.right, target)
 		
 		else: 
-			self.findTarget(root.left, target)
+			return self.findTarget(root.left, target)
 
 	#Helper method to find the leftmost element in the tree 
 	def leftMostNode(self, node):
@@ -39,7 +38,6 @@ class Solutions:
 		current = node 
 		while(current.left != None):
 			current = current.left
-
 		return current
 	#Output: TreeNode  
 	def FindInorderSuccessor(self, root, target):
@@ -48,14 +46,16 @@ class Solutions:
 			return None
 		#Find the target value as a tree node in the tree
 		target_node = self.findTarget(root, target)
+		#if target is not from the tree
 		if(target_node == None):
 			return None	
 		#CASE 1: the target node has a right subtree, so the inorder successor would be the left most element in that substree 
-		if(target_node.right):
-			return leftMostNode(target_node)
+		if(target_node.right != None):
+			return self.leftMostNode(target_node.right)
 		
 		else: 
 			#CASE 2: the target node does not have a right subtree, so we will have to backtrack to its parents node to find the inorder successor 
+			print("CASE 2 IS CALLED!")
 			successor = None
 			parent = root
 			while(parent != target_node):
@@ -66,10 +66,6 @@ class Solutions:
 				else:
 					parent = parent.right
 		return parent
-	
-
-
-
 #Main function to test the program
 def main():
 	print("TESTING INORDER SUCCESSOR OF A BINARY SEARCH TREE...")
@@ -84,7 +80,7 @@ def main():
 	root.left.right.right = TreeNode(14)
 
 	findInorder = Solutions()
-	print(findInorder.FindInorderSuccessor(root, 8))
+	print(findInorder.FindInorderSuccessor(root, 8).val)
 
 	print("END OF TESTING...")
 
