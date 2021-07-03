@@ -55,7 +55,6 @@ class Solutions:
 		
 		else: 
 			#CASE 2: the target node does not have a right subtree, so we will have to backtrack to its parents node to find the inorder successor 
-			print("CASE 2 IS CALLED!")
 			successor = None
 			parent = root
 			while(parent != target_node):
